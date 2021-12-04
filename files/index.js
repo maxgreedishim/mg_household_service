@@ -1,15 +1,15 @@
-fetch('api/mg_household_service?page=0')
+fetch('api/mainbase?page=0')
     .then(res => res.json())
     .then(obj => {
         const ol = document.querySelector("ol")
-        const columns = obj._embedded.columns
-        columns.forEach(column => {
+        const customers = obj._embedded.customers
+        customers.forEach(customer => {
             const p = document.createElement("li")
             p.textContent =  `
-             ${column.end_date},
-             ${column.notes},
-             ${column.price},
-             ${column.start_date},`
+             ${customer.first_name},
+             ${customer.last_name},
+             ${customer.middle_name},
+             ${customer.phone_numder}`
             ol.appendChild(p)
         });
     })
