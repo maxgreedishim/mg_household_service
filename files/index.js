@@ -1,11 +1,11 @@
-fetch('api/mainbase?page=0')
+fetch('api/mg_household_service?page=0')
     .then(res => res.json())
     .then(obj => {
         const ol = document.querySelector("ol")
         const customers = obj._embedded.customers
         customers.forEach(customer => {
             const p = document.createElement("li")
-            p.textContent =  `
+            p.textContent = `
              ${customer.first_name},
              ${customer.last_name},
              ${customer.middle_name},

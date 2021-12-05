@@ -2,16 +2,15 @@ package mg_household_service.entity;
 
 import javax.persistence.*;
 
-@Table(name = "nomenclature")
 @Entity
+@Table(name = "nomenclature")
 public class Nomenclature {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", length = 45)
     private String name;
 
     public String getName() {

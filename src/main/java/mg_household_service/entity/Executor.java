@@ -2,24 +2,21 @@ package mg_household_service.entity;
 
 import javax.persistence.*;
 
-@Table(name = "executors")
 @Entity
+@Table(name = "executors")
 public class Executor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "first_name", length = 45)
     private String firstName;
 
-    @Lob
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "last_name", length = 45)
     private String lastName;
 
-    @Lob
-    @Column(name = "phone_number", nullable = false)
+    @Column(name = "phone_number", length = 45)
     private String phoneNumber;
 
     public String getPhoneNumber() {

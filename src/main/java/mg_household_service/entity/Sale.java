@@ -2,60 +2,55 @@ package mg_household_service.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.Instant;
 
-@Table(name = "sales")
 @Entity
+@Table(name = "sales")
 public class Sale {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "nomenclature_id", nullable = false)
-    private Integer nomenclatureId;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
-    @Column(name = "executor_id", nullable = false)
-    private Integer executorId;
+    @Column(name = "end_date")
+    private Instant endDate;
 
-    @Column(name = "customer_id", nullable = false)
-    private Integer customerId;
+    @ManyToOne
+    @JoinColumn(name = "executor_id")
+    private Executor executor;
+
+    @ManyToOne
+    @JoinColumn(name = "nomenclature_id")
+    private Nomenclature nomenclature;
 
     @Lob
     @Column(name = "notes")
     private String notes;
 
-    @Column(name = "start_date", nullable = false)
-    private OffsetDateTime startDate;
+    @Column(name = "price", length = 45)
+    private Integer price;
 
-    @Column(name = "end_date", nullable = false)
-    private OffsetDateTime endDate;
+    @Column(name = "start_date")
+    private Instant startDate;
 
-    @Column(name = "price", nullable = false)
-    private BigDecimal price;
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public OffsetDateTime getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(OffsetDateTime endDate) {
-        this.endDate = endDate;
-    }
-
-    public OffsetDateTime getStartDate() {
+    public Instant getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(OffsetDateTime startDate) {
+    public void setStartDate(Instant startDate) {
         this.startDate = startDate;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 
     public String getNotes() {
@@ -66,28 +61,36 @@ public class Sale {
         this.notes = notes;
     }
 
-    public Integer getCustomerId() {
-        return customerId;
+    public Nomenclature getNomenclature() {
+        return nomenclature;
     }
 
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
+    public void setNomenclature(Nomenclature nomenclature) {
+        this.nomenclature = nomenclature;
     }
 
-    public Integer getExecutorId() {
-        return executorId;
+    public Executor getExecutor() {
+        return executor;
     }
 
-    public void setExecutorId(Integer executorId) {
-        this.executorId = executorId;
+    public void setExecutor(Executor executor) {
+        this.executor = executor;
     }
 
-    public Integer getNomenclatureId() {
-        return nomenclatureId;
+    public Instant getEndDate() {
+        return endDate;
     }
 
-    public void setNomenclatureId(Integer nomenclatureId) {
-        this.nomenclatureId = nomenclatureId;
+    public void setEndDate(Instant endDate) {
+        this.endDate = endDate;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public Integer getId() {
