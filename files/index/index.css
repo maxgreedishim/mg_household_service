@@ -1,0 +1,55 @@
+div.one{
+    position: absolute;
+    -webkit-transform: translate(600px,100px); /** Safari & Chrome **/
+    -o-transform: translate(600px,100px); /** Opera **/
+    -moz-transform: translate(600px,100px); /** Firefox **/
+
+}
+div.two{
+    position: absolute;
+    -webkit-transform: translate(470px,22px); /** Safari & Chrome **/
+    -o-transform: translate(470px,22px); /** Opera **/
+    -moz-transform: translate(470px,22px); /** Firefox **/
+
+}
+div.three{
+    position: absolute;
+    -webkit-transform: translate(470px,178px); /** Safari & Chrome **/
+    -o-transform: translate(470px,178px); /** Opera **/
+    -moz-transform: translate(470px,178px); /** Firefox **/
+
+}
+
+.clip-caption {
+    width: 100%; /*позицианирование текста по горизонту*/
+    position: absolute;
+    top: 50%;/*позицианирование текста по вертикале*/
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.clip-each {
+    display: block;
+    position: absolute;
+    -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    margin: 0 auto;
+}
+
+a.clip-each:hover {
+    background: #4075f5;
+    -webkit-transition: all 0.25s ease-in;
+    transition: all 0.25s ease-in;
+}
+.clip-gradient {          /*размер и цвет  шестиугольника*/
+    background: #464545;
+    width: 170px;
+    height: 170px;
+}
+.clip-gradient .clip-caption { /*цвет шрифта*/
+    color: #fff;
+}

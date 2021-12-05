@@ -5,11 +5,7 @@ fetch('api/mg_household_service?page=0')
         const customers = obj._embedded.customers
         customers.forEach(customer => {
             const p = document.createElement("li")
-            p.textContent = `
-             ${customer.first_name},
-             ${customer.last_name},
-             ${customer.middle_name},
-             ${customer.phone_numder}`
+            p.textContent =  `${customer.lastName}, ${customer.firstName}, ${customer.middleName}, ${customer.phoneNumber}`
             ol.appendChild(p)
         });
     })
