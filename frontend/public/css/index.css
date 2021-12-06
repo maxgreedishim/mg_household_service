@@ -1,3 +1,5 @@
+
+
 div.one{
     position: absolute;
     -webkit-transform: translate(600px,100px); /** Safari & Chrome **/
@@ -14,9 +16,9 @@ div.two{
 }
 div.three{
     position: absolute;
-    -webkit-transform: translate(470px,178px); /** Safari & Chrome **/
-    -o-transform: translate(470px,178px); /** Opera **/
-    -moz-transform: translate(470px,178px); /** Firefox **/
+    -webkit-transform: translate(470px,28px); /** Safari & Chrome **/
+    -o-transform: translate(470px,28px); /** Opera **/
+    -moz-transform: translate(470px,28px); /** Firefox **/
 
 }
 
