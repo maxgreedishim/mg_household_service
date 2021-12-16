@@ -1,4 +1,9 @@
+/*body {
+background-image: url('../img/Inked20593.jpg');
+background-size: 100%;
 
+}*/
+.selected{ background: silver;}
 
 div.one{
     position: absolute;
@@ -43,7 +48,7 @@ div.three{
 }
 
 a.clip-each:hover {
-    background: #4075f5;
+    background: #bb2124;
     -webkit-transition: all 0.25s ease-in;
     transition: all 0.25s ease-in;
 }

@@ -10,27 +10,40 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"
         defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="js/customers.js" defer></script>
     <title>Дом быта</title>
+
 
 </head>
 
 <body>
     <main class="container">
         <h1>Наши клиенты</h1>
+        <form action="/api/customer" method="post">
+            <input type="text" name="last_name" placeholder="Фамилия клиента">
+            <input type="text" name="first_name" placeholder="Имя клиента">           
+            <input type="text" name="middle_name" placeholder="Отчество клиента">
+            <input type="text" name="phone_number" placeholder="Телефон клиента">
+            <input type="submit" value="Добавить">
+            <input type="button" onClick="changeLine()"value="Изменить">
+            <input type="button" id=deleteLine onClick="deleteLine()"value="Удалить">         
+        </form>
         <table class="table">
-            <thead>
+            <thead>               
                 <tr>
                     <th scope="col" class="col-1">№</th>
                     <th scope="col" class="col-2">Фамилия</th>
-                    <th scope="col" class="col-2">Имя</th>
-                    <th scope="col" class="col-2">Отчество</th>
-                    <th scope="col">Телефон</th>                    
-                </tr>
+                    <th scope="col" class="col-3">Имя</th>
+                    <th scope="col" class="col-4">Отчество</th>
+                    <th scope="col">Телефон</th>  
+                                                                  
+                </tr>           
             </thead>
             <tbody></tbody>        
         </table>
-    </main>
+    </main> 
+    
 </body>
 
 </html>

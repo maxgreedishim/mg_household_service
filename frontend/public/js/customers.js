@@ -1,6 +1,27 @@
+const form = document.querySelector ("form ")
+form.addEventListener("submit", e => {
+    e.preventDefault()    
+    let firstName = form.first_name.value
+    let lastName = form.last_name.value
+    let middleName = form.middle_name.value
+    let phoneNumber = form.phone_number.value
+    let body = {firstName,lastName,middleName,phoneNumber}
+    fetch('/api/customer', {
+        method:"post", 
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+          },
+    })
+    location.reload()
+    //.then(res => res.text())
+    // .then(txt => alert("ok"))
+    
+})
+
 fetch('/api/customers?page=0')
     .then(res => res.json())
-    .then(obj => {
+    .then(obj => {      
         const tbody = document.querySelector("tbody")
         const customers = obj._embedded.customers
         customers.forEach(customer => {
@@ -20,9 +41,20 @@ fetch('/api/customers?page=0')
             td.textContent = customer.firstName
             td = document.createElement("td")
             tr.appendChild(td)
-            td.textContent = customer.middleName
+            td.textContent = customer.middleName            
             td = document.createElement("td")
             tr.appendChild(td)
             td.textContent = customer.phoneNumber            
+            $(document).ready(function(){
+                $('tr').click(function(){
+                    $('tr').removeClass();
+                    $(this).addClass('selected');                     
+                    var a = this.closest('tr');
+                    $("#deleteLine").click(function(){
+                    a.parentElement.removeChild(a);
+                    alert(a);                     
+                    });                 
+                });
+            });                 
         });
     })
