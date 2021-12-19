@@ -1,4 +1,4 @@
-const form = document.querySelector ("form ")
+const form = document.querySelector ("form")
 form.addEventListener("submit", e => {
     e.preventDefault()    
     let firstName = form.first_name.value
@@ -12,11 +12,9 @@ form.addEventListener("submit", e => {
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
           },
-    })
-    location.reload()
-    //.then(res => res.text())
-    // .then(txt => alert("ok"))
-    
+    })    
+    .then(res => res.text())
+    .then(txt => alert("ok"))    
 })
 
 fetch('/api/customers?page=0')
@@ -45,16 +43,6 @@ fetch('/api/customers?page=0')
             td = document.createElement("td")
             tr.appendChild(td)
             td.textContent = customer.phoneNumber            
-            $(document).ready(function(){
-                $('tr').click(function(){
-                    $('tr').removeClass();
-                    $(this).addClass('selected');                     
-                    var a = this.closest('tr');
-                    $("#deleteLine").click(function(){
-                    a.parentElement.removeChild(a);
-                    alert(a);                     
-                    });                 
-                });
-            });                 
+                       
         });
     })
